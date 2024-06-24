@@ -35,6 +35,5 @@ WORKDIR /app
 # Exponer un puerto (si es necesario, por ejemplo, para una aplicación web)
 # EXPOSE 8080
 
-# Comando para ejecutar tu aplicación (cambiar según tus necesidades)
-CMD ["./start.sh"]
-
+# Mantener el contenedor activo ejecutando un comando que no termina
+CMD ["tail", "-f", "/dev/null"]
