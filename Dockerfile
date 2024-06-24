@@ -16,16 +16,16 @@ RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
 # Cambiar la contraseña del usuario root
-RUN echo 'root:${nueva_contraseña}' | chpasswd
+RUN echo 'root:${ROOT_PASSWORD}' | chpasswd
+
+# Copy script to install al required programs
+COPY ./scripts/install-apps.sh /tmp/script.sh
+
+# Dar permisos de ejecución al script
+RUN chmod +x /tmp/script.sh
 
 # Instalar otros paquetes necesarios (por ejemplo, curl, nano, etc.)
-RUN apt-get update && \
-    apt-get install -y \
-    curl \
-    nano \
-    git && \
-    rm -rf /var/lib/apt/lists/*
-
+RUN /tmp/script.sh
 # Establecer el directorio de trabajo
 WORKDIR /app
 
