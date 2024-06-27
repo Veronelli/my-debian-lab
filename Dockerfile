@@ -39,5 +39,7 @@ WORKDIR /app
 # Exponer un puerto (si es necesario, por ejemplo, para una aplicación web)
 # EXPOSE 8080
 
+WORKDIR "/app"
+
 # Mantener el contenedor activo ejecutando un comando que no termina
 CMD ["tail", "-f", "/dev/null"]
