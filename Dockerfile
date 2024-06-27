@@ -3,6 +3,10 @@ FROM debian:12.5-slim
 
 # Argumentos
 ARG ROOT_PASSWORD
+ARG APP_PATH
+
+# VOlUMES
+VOLUME /app
 
 # Actualizar los repositorios de paquetes e instalar locales
 RUN apt-get update && \
