@@ -23,13 +23,13 @@ ENV LANG=en_US.utf8
 RUN echo 'root:${ROOT_PASSWORD}' | chpasswd
 
 # Copy script to install al required programs
-COPY ./scripts/install-apps.sh /tmp/script.sh
+COPY ./scripts/ /tmp/
 
 # Dar permisos de ejecución al script
-RUN chmod +x /tmp/script.sh
+RUN chmod +x /tmp/install-apps.sh
 
 # Instalar otros paquetes necesarios (por ejemplo, curl, nano, etc.)
-RUN /tmp/script.sh
+RUN /tmp/install-apps.sh
 # Establecer el directorio de trabajo
 WORKDIR /app
 
