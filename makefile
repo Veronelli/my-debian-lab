@@ -3,3 +3,6 @@ build:
 
 run:
 	docker run -v ./volumes/app:/app -d debian-lab
+
+# TODO: create a ENV to auto access to container
+# TODO: check server status by name service

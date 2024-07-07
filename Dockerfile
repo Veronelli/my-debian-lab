@@ -2,8 +2,9 @@
 FROM debian:12.5-slim
 
 # Argumentos
-ARG ROOT_PASSWORD
+ARG ROOT_PASSWORD=root
 ARG APP_PATH
+ARG MARIADB_PORT=3306
 
 # VOlUMES
 VOLUME /app
@@ -36,8 +37,8 @@ WORKDIR /app
 # Copiar archivos necesarios al contenedor (por ejemplo, archivos fuente)
 # COPY . /app
 
-# Exponer un puerto (si es necesario, por ejemplo, para una aplicación web)
-# EXPOSE 8080
+# 
+EXPOSE ${MARIADB_PORT}
 
 WORKDIR "/app"
 
